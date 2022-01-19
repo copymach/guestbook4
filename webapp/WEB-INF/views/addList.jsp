@@ -59,8 +59,9 @@ List<GuestbookVo> guestbookList = (List<GuestbookVo>) request.getAttribute("gLis
 			<!-- <input type="hidden" name="action" value="deleteForm"> -->
 			<td>
 			<!-- <button type="submit">수정저장</button> -->
-	<a href="/guestbook4/guestbook/deleteForm&no=${guestbookList.no }">삭제 Del</a>
+	<a href="/guestbook4/guestbook/deleteForm?no=${guestbookList.no }">삭제 Del</a>
 	<!-- http://localhost:8088/guestbook4/guestbook/deleteForm -->
+	<!-- http://localhost:8088/guestbook4/guestbook/deleteForm?no=80 -->
 			</td>
 		</tr>
 		<tr>

@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
 /*
@@ -25,7 +24,7 @@ String no = request.getParameter("no");
 		<table>
 			<tr>
 				<td>방명록 글ID (type=hidden 처리예정)</td>
-				<td><input type="text" name="no" value="${guestbookList.no }" readonly>
+				<td><input type="text" name="no" value="${param.no }" readonly>
 				<!-- <input type="hidden" name="action" value="delete"> -->
 				</td>
 			</tr>
@@ -40,9 +39,8 @@ String no = request.getParameter("no");
 	</form>
 	<br>
 	<br>
-	<a href="/WEB-INF/addList.jsp"> 목록으로 돌아가기 (상대경로)</a>
+	<a href="/guestbook4/guestbook/addList.jsp"> 목록으로 돌아가기 (상대경로)</a>
 	<br>
-
 
 </body>
 </html>

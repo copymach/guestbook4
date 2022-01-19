@@ -60,14 +60,8 @@ public class GuestbookController {
 
 	
 	@RequestMapping(value = "/deleteForm", method = { RequestMethod.GET, RequestMethod.POST })
-	public String deleteForm(Model model, 
-							@RequestParam(value="no", required=false, defaultValue = "1") int no) {
+	public String deleteForm() {
 		System.out.println("PhoneController > deleteForm () ");
-		
-		List<GuestbookVo> guestbookList = guestbookDao.getList();
-
-//		Servlet간 공유하는 게스트북 객체
-		model.addAttribute("guestbookList", guestbookList);
 		
 		return "deleteForm";
 	} // deleteForm 종료
@@ -86,14 +80,6 @@ public class GuestbookController {
 	} // delete 종료
 	
 
-//	http://localhost:8088/guestbook4/guestbook/deleteForm2
-	@RequestMapping(value = "/deleteForm2", method = { RequestMethod.GET, RequestMethod.POST })
-	public String deleteForm() {
-		System.out.println("PhoneController > deleteForm2 () ");
-		
-		return "deleteForm";
-	} // deleteForm 종료
-	
 	
 } // end of Controller 
 

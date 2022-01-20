@@ -50,12 +50,12 @@ List<GuestbookVo> guestbookList = (List<GuestbookVo>) request.getAttribute("gLis
 	
 	<!-- 리스트영역 -->
 	
-	<c:forEach items="${guestbookList}" var="guestbookList">
+	<c:forEach items="${requestScope.guestbookList}" var="guestbookList">
 	<table border="1" width="500px">
 		<tr>
-			<td><input type="text" name="no" value="${guestbookList.no }"> </td>
-			<td>${guestbookList.name }</td>
-			<td>${guestbookList.regDate }</td>
+			<td><input type="text" name="no" value="no:${guestbookList.no }"> </td>
+			<td>name:${guestbookList.name }</td>
+			<td>date:${guestbookList.regDate }</td>
 			<!-- <input type="hidden" name="action" value="deleteForm"> -->
 			<td>
 			<!-- <button type="submit">수정저장</button> -->

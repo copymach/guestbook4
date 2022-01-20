@@ -29,7 +29,7 @@ public class GuestbookController {
 	
 	@RequestMapping(value = "/addList", method = { RequestMethod.GET, RequestMethod.POST })
 	public String addList(Model model) {
-		System.out.println("guestbookController > addList() ");
+		System.out.println("guestbookController > addList() 시작");
 		
 		List<GuestbookVo> guestbookList = guestbookDao.getList();
 
@@ -52,7 +52,7 @@ public class GuestbookController {
 		System.out.println(guestbookVo);
 		
 //		받아온 파라미터를 서버에 넣는다
-		guestbookDao.ContentInsert(guestbookVo);
+		guestbookDao.guestbookInsert(guestbookVo);
 		
 //		리다이렉트
 		return "redirect:addList";
@@ -66,14 +66,12 @@ public class GuestbookController {
 		return "deleteForm";
 	} // deleteForm 종료
 	
-
-	
 //	http://localhost:8088/guestbook4/guestbook/delete?no=81&password=77
 	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public String delete(@RequestParam("no") int ContentNo, @RequestParam("password") String password) {
 		System.out.println("PhoneController > delete () ");
 		
-		guestbookDao.ContentDelete(ContentNo, password);
+		guestbookDao.guestbookDelete(ContentNo, password);
 		
 //		리다이렉트
 		return "redirect:addList";

@@ -1,40 +1,20 @@
 package com.javaex.dao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.javaex.vo.GuestbookVo;
 
 @Repository
-public class GuestbookDao {
+public class GuestbookDao2 {
 
-	@Autowired
-	private SqlSession sqlSession;
-	
-	
-//	방명록 리스트 가져오기
-	public List<GuestbookVo> getList() {
-		List<GuestbookVo> guestbookList = sqlSession.selectList("guestbook.selectList");
-		return guestbookList;
-	}
-	
-//	방명록 추가
-	public int guestbookInsert(GuestbookVo guestbookVo) {
-		int count = sqlSession.insert("guestbook.insert", guestbookVo);
-		return count;
-	}
-	
-	public int guestbookDelete(int no, String password) {
-		System.out.println("guestbook guestbookDelete");
-		int count = sqlSession.delete("guestbook.delete", no);
-		System.out.println(sqlSession.toString());
-		return count;
-	}
-	
-	/*
 //	필드
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
@@ -46,7 +26,7 @@ public class GuestbookDao {
 	private String pw = "1234";
 
 //생성자	
-	public GuestbookDao() {
+	public GuestbookDao2() {
 	}
 
 //메소드gs
@@ -179,7 +159,7 @@ public class GuestbookDao {
 		getConnection();
 
 		try {
-//			DELETE FROM guestbook WHERE no = 1 ; 
+			/* DELETE FROM guestbook WHERE no = 1 ; */
 			// 3. SQL문 준비 / 바인딩 / 실행
 			String query = "";
 			query += " DELETE FROM guestbook ";
@@ -331,6 +311,6 @@ public class GuestbookDao {
 	
 	
 
-*/	
+	
 	
 } // The end of GuestbookDao method.

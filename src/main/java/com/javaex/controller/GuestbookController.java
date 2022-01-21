@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,15 +69,14 @@ public class GuestbookController {
 	
 //	http://localhost:8088/guestbook4/guestbook/delete?no=81&password=77
 	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
-	public String delete(@RequestParam("no") int ContentNo, @RequestParam("password") String password) {
+	public String delete(@ModelAttribute GuestbookVo guestbookVo) {
 		System.out.println("PhoneController > delete () ");
 		
-		guestbookDao.guestbookDelete(ContentNo, password);
+		guestbookDao.guestbookDelete(guestbookVo);
 		
 //		리다이렉트
 		return "redirect:addList";
 	} // delete 종료
-	
 
 	
 } // end of Controller 

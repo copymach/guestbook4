@@ -5,6 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javaex.vo.GuestbookVo;
 
@@ -27,12 +30,13 @@ public class GuestbookDao {
 		return count;
 	}
 	
-	public int guestbookDelete(int no, String password) {
+	public int guestbookDelete(GuestbookVo guestbookVo) {
 		System.out.println("guestbook guestbookDelete");
-		int count = sqlSession.delete("guestbook.delete", no);
+		int count = sqlSession.delete("guestbook.delete", guestbookVo);
 		System.out.println(sqlSession.toString());
 		return count;
 	}
+	
 	
 	/*
 //	필드

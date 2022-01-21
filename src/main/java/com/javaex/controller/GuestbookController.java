@@ -49,7 +49,6 @@ public class GuestbookController {
 
 //		vo로 만든다
 		GuestbookVo guestbookVo = new GuestbookVo(name, password, content);
-
 		System.out.println(guestbookVo);
 		
 //		받아온 파라미터를 서버에 넣는다
